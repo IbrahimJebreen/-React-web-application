@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
     MDBContainer,
     MDBNavbar,
@@ -11,17 +11,16 @@ import {
     MDBIcon,
     MDBCollapse
 } from 'mdb-react-ui-kit';
-import Home from './Home/Home';
-import About from './About';
-import Contact from './Contact';
+
+import logo from '../assest/logo.png'
 export default function Navbar() {
     const [showNavColorSecond, setShowNavColorSecond] = useState(false);
 
     return (
-<Router>
-<MDBNavbar expand='lg' dark bgColor='dark'>
+
+<MDBNavbar expand='lg' dark  style={{backgroundColor:'black'}}>
         <MDBContainer fluid>
-          <MDBNavbarBrand href='/' style={{marginLeft:'100px'}}><img style={{width:'50px'}} src='https://yt3.ggpht.com/a/AATXAJz3rRPxJkjU-R5JLP0mKmNMQ-XgOS012T6Gmw=s900-c-k-c0xffffffff-no-rj-mo'/></MDBNavbarBrand>
+          <MDBNavbarBrand href='/' style={{marginLeft:'100px'}}><img style={{height:'60px'}} src={logo}/></MDBNavbarBrand>
           <MDBNavbarToggler
             type='button'
             data-target='#navbarColor02'
@@ -50,12 +49,8 @@ export default function Navbar() {
           </MDBCollapse>
         </MDBContainer>
       </MDBNavbar>
-      <Routes>
-                <Route exact path='/' element={< Home />}></Route>
-                <Route exact path='/about' element={< About />}></Route>
-                <Route exact path='/contact' element={< Contact />}></Route>
-            </Routes>
-      </Router>
+      
+     
 
 
 
