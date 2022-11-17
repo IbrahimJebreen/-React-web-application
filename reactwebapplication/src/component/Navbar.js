@@ -34,16 +34,22 @@ export default function Navbar() {
           <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02' style={{marginLeft:'20%'}}>
             <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
               <MDBNavbarItem className='active'>
-                <MDBNavbarLink aria-current='page' href='#'>
-                <Link to="/" className='link-light ' style={{marginLeft:'100px'}}>Home</Link>
+                <MDBNavbarLink aria-current='page'>
+                <Link to="/" className='link-light ' style={{marginLeft:'50px'}}>Home</Link>
                 </MDBNavbarLink>
               </MDBNavbarItem>
               
               <MDBNavbarItem>
-                <MDBNavbarLink ><Link to="/about" className='link-light' style={{marginLeft:'100px'}} >About</Link></MDBNavbarLink>
+                <MDBNavbarLink ><Link to="/about" className='link-light' style={{marginLeft:'50px'}} >About</Link></MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink ><Link to="/contact" className='link-light ' style={{marginLeft:'100px'}}>Contact</Link></MDBNavbarLink>
+                <MDBNavbarLink ><Link to="/contact" className='link-light ' style={{marginLeft:'50px'}}>Contact</Link></MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink ><Link to="/login" className='link-light ' style={{marginLeft:'50px'}}>Login</Link></MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink ><Link to="/register" className='link-light ' style={{marginLeft:'50px'}}>Register</Link></MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>
