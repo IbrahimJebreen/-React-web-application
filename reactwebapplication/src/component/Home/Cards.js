@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {data} from './data';
 import './Cards.css';
 import axios from "axios";
 function Cards({page}) {
@@ -54,7 +53,7 @@ function Cards({page}) {
       else
     return (
         <div className='App'>
-            {console.log(movies)}
+            {/* {console.log(movies)} */}
             <Slider {...settings}>
             {movies.results.map(item=>{
                 return(

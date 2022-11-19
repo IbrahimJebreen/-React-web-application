@@ -13,7 +13,10 @@ import {
 } from 'mdb-react-ui-kit';
 
 import logo from '../assest/logo.png'
+import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
 export default function Navbar() {
+    const isAut=useIsAuthenticated();
+    const singnOut=useSignOut();
     const [showNavColorSecond, setShowNavColorSecond] = useState(false);
 
     return (
@@ -45,12 +48,21 @@ export default function Navbar() {
               <MDBNavbarItem>
                 <MDBNavbarLink ><Link to="/contact" className='link-light ' style={{marginLeft:'50px'}}>Contact</Link></MDBNavbarLink>
               </MDBNavbarItem>
+              {!isAut() ?(
+              <>
               <MDBNavbarItem>
                 <MDBNavbarLink ><Link to="/login" className='link-light ' style={{marginLeft:'50px'}}>Login</Link></MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink ><Link to="/register" className='link-light ' style={{marginLeft:'50px'}}>Register</Link></MDBNavbarLink>
-              </MDBNavbarItem>
+              <MDBNavbarLink ><Link to="/register" className='link-light ' style={{marginLeft:'50px'}}>Register</Link></MDBNavbarLink>
+            </MDBNavbarItem>
+            </>
+            ):
+              (<MDBNavbarItem>
+                <MDBNavbarLink ><Link to="/register" onClick={(e)=>{ singnOut()}} className='link-light ' style={{marginLeft:'50px'}}>Logout</Link></MDBNavbarLink>
+              </MDBNavbarItem>)}
+              
+              
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBContainer>

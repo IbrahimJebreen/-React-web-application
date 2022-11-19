@@ -7,6 +7,7 @@ import About from './component/About';
 import Home from './component/Home/Home';
 import SignInSide from './component/lgoin&regester/SignInSide';
 import SignUpSide from './component/lgoin&regester/SignUpSide';
+import { AuthProvider } from 'react-auth-kit';
 
 
 
@@ -17,6 +18,8 @@ import SignUpSide from './component/lgoin&regester/SignUpSide';
 function App(props) {
   return (
     <div>
+       <AuthProvider authType = {'cookie'}
+                  authName={'_auth'}>
       <Router>
       <Navbar/>
       <Routes>
@@ -25,10 +28,11 @@ function App(props) {
                 <Route exact path='/contact' element={< Contact />}></Route>
                 <Route exact path='/login' element={< SignInSide />}></Route>
                 <Route exact path='/register' element={< SignUpSide />}></Route>
-
+    
             </Routes>
       <Footer/>
             </Router>
+      </AuthProvider>
     </div>
   );
 }

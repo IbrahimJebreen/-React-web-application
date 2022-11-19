@@ -27,8 +27,7 @@ export const Footer = () => {
               </div>
             </a>
             <p className="my-1 text-center " style={{ width: "500px" }}>
-              We are creating High Quality Resources and tools to Aid developers
-              during the developement of their projects
+            MOVIES NOW has an extensive library of feature films, documentaries, TV shows, anime, award-winning MOVIES NOW originals, and more. Watch as much as you want, anytime you want.
             </p>
             <CDBBox
               display="flex"

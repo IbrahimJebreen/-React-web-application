@@ -8,7 +8,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<div style={{backgroundColor:'#1d1e1f'}}>
+root.render(<div style={{backgroundColor:'#fff'}}>
   <React.StrictMode>
     <App />
   </React.StrictMode>
