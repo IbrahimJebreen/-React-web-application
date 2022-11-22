@@ -14,8 +14,12 @@ import {
 
 import logo from '../assest/logo.png'
 import { useIsAuthenticated, useSignOut } from 'react-auth-kit';
+import Logout from './Google/Logout';
+// import { useCookies } from "react-cookie";
+
 export default function Navbar() {
     const isAut=useIsAuthenticated();
+    // const [cookies, setCookie, removeCookie] = useCookies(["currentUser"]);
     const singnOut=useSignOut();
     const [showNavColorSecond, setShowNavColorSecond] = useState(false);
 
@@ -48,8 +52,9 @@ export default function Navbar() {
               <MDBNavbarItem>
                 <MDBNavbarLink ><Link to="/contact" className='link-light ' style={{marginLeft:'50px'}}>Contact</Link></MDBNavbarLink>
               </MDBNavbarItem>
-              {!isAut() ?(
-              <>
+              {localStorage.getItem('user')==''?(
+                <>
+                {console.log(localStorage.getItem('user')=='')}
               <MDBNavbarItem>
                 <MDBNavbarLink ><Link to="/login" className='link-light ' style={{marginLeft:'50px'}}>Login</Link></MDBNavbarLink>
               </MDBNavbarItem>
@@ -58,10 +63,15 @@ export default function Navbar() {
             </MDBNavbarItem>
             </>
             ):
-              (<MDBNavbarItem>
-                <MDBNavbarLink ><Link to="/register" onClick={(e)=>{ singnOut()}} className='link-light ' style={{marginLeft:'50px'}}>Logout</Link></MDBNavbarLink>
-              </MDBNavbarItem>)}
+              (
+               <MDBNavbarItem>
+                <MDBNavbarLink ><Link to="/register" onClick={(e)=>{ singnOut()}} className='link-light ' style={{marginLeft:'50px'}}><Logout/></Link></MDBNavbarLink>
+              </MDBNavbarItem>
               
+              )}
+              {/* <MDBNavbarItem>
+                <MDBNavbarLink ><Link to="/register" onClick={(e)=>{ singnOut()}} className='link-light ' style={{marginLeft:'50px'}}><Logout/></Link></MDBNavbarLink>
+              </MDBNavbarItem> */}
               
             </MDBNavbarNav>
           </MDBCollapse>

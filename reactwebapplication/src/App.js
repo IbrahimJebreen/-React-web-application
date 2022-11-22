@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Footer } from './component/Footer';
 import Navbar from './component/Navbar';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -16,17 +16,18 @@ import { AuthProvider } from 'react-auth-kit';
 
 
 function App(props) {
+  const[isSignedIn,setIsSignedIn]=useState(false);
   return (
     <div>
        <AuthProvider authType = {'cookie'}
                   authName={'_auth'}>
       <Router>
-      <Navbar/>
+      <Navbar SignInSide={isSignedIn}/>
       <Routes>
                 <Route exact path='/' element={< Home />}></Route>
                 <Route exact path='/about' element={< About />}></Route>
                 <Route exact path='/contact' element={< Contact />}></Route>
-                <Route exact path='/login' element={< SignInSide />}></Route>
+                <Route exact path='/login' element={< SignInSide SignInSide={setIsSignedIn} />} ></Route>
                 <Route exact path='/register' element={< SignUpSide />}></Route>
     
             </Routes>

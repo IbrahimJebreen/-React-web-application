@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './Cards.css';
 import axios from "axios";
 function Cards({page}) {
-    const baseURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&&page="+page;
+    const baseURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=a911e0c4c9e428116cda4b17a76dd843&with_genres="+page;
     const [movies, setMovies] = React.useState(null);
 
     React.useEffect(() => {
@@ -54,6 +54,7 @@ function Cards({page}) {
     return (
         <div className='App'>
             {/* {console.log(movies)} */}
+              {console.log(movies)}
             <Slider {...settings}>
             {movies.results.map(item=>{
                 return(

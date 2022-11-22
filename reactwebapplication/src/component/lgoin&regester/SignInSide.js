@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useSignIn } from 'react-auth-kit';
 import { LoginSharp } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import LoginGoogle from '../Google/Login';
 
 function Copyright(props) {
     return (
@@ -30,12 +31,12 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-
+//get data from localstorage
 function getDataFromLocalStorage(params) {
     return JSON.parse(localStorage.getItem('user'));
 }
 
-export default function SignInSide() {
+export default function SignInSide({SignInSide}) {
     const Login = useSignIn();
     const navigate = useNavigate();
     const handleSubmit = (event) => {
@@ -113,6 +114,7 @@ export default function SignInSide() {
                         >
                             Sign In
                         </Button>
+                    <LoginGoogle/>
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
